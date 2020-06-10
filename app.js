@@ -2,9 +2,9 @@
 App({
   onLaunch: function () {
     // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+    var myCenter = wx.getStorageSync('myCenter') || []
+    myCenter.unshift(Date.now())
+    wx.setStorageSync('myCenter', myCenter)
 
     // 登录
     wx.login({
