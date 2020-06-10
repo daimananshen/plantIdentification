@@ -1,5 +1,5 @@
-var app = getApp();
 var that = '';
+var app = getApp()
 Page({
 
   /**
@@ -16,11 +16,6 @@ Page({
   onLoad: function (options) {
     that = this;
   },
-  //全局变量
-  globalData: {
-    userInfo: null,
-    image:''
-  },
   /**
    * 选择图片
    */
@@ -35,7 +30,7 @@ Page({
       success(res) {
         const tempFilePaths = res.tempFilePaths[0];
         that.getB64ByUrl(tempFilePaths);
-        that.globalData.image = tempFilePaths;
+        getApp().globalData.image= tempFilePaths;
         that.setData({
           img: tempFilePaths
         });
@@ -100,7 +95,7 @@ Page({
       success(res) {
         console.log(res.data);
         if (res.data) {
-          that.globalData.userInfo = JSON.stringify(res.data);
+          getApp().globalData.getData = JSON.stringify(res.data.result);
           wx.redirectTo({
             url: '../showData/showData'
           })

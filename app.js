@@ -5,7 +5,9 @@ App({
       env: 'dev-0a2xc'
     })
   },
+  //全局变量
   globalData: {
-    userInfo: null
-  }
+    getData: '',
+    image:''
+  },
 })

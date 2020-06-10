@@ -1,17 +1,31 @@
 // pages/showData/showData.js
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    content:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(app.globalData.image);
+    console.log(app.globalData.getData);
+    let length = app.globalData.getData;
+
+    for(let i = 0; i < length.length; ++i){
+      console.log(length[i])
+    }
+
+    // this.setData({
+    //   img: app.globalData.image,
+    //   content: app.globalData.getData
+    // });
+
 
   },
 
