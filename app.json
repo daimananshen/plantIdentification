@@ -1,7 +1,9 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/myCenter/myCenter"
+    "pages/myCenter/myCenter",
+    "pages/takePhoto/takePhoto",
+    "pages/showData/showData"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -16,6 +18,12 @@
         "iconPath":"images/index.png",
         "selectedIconPath":"images/index2.png",
         "text": "首页"
+      },
+      {
+        "pagePath": "pages/takePhoto/takePhoto",
+        "iconPath": "images/photo.png",
+        "selectedIconPath": "images/photo2.png",
+        "text": "拍照"
       },
       {
         "pagePath": "pages/myCenter/myCenter",
