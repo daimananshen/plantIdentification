@@ -93,7 +93,8 @@ Page({
       url: 'https://aip.baidubce.com/rest/2.0/image-classify/v1/plant?access_token=' + token, 
       method: "post",
       data: {
-        image: that.data.imgB64
+        image: that.data.imgB64,
+        baike_num:'1'
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded' // 默认值
