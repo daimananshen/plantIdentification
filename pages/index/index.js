@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    img: '/image/test_default.png',
+    img: '/images/Tulips.jpg',
     imgB64: '',
     content: '',
     ishow: false
@@ -50,7 +50,6 @@ Page({
       filePath: url,
       encoding: 'base64',
       success(res) {
-        // console.log(res.data);
         that.setData({
           imgB64: res.data
         });
@@ -76,14 +75,14 @@ Page({
   },
   getToken: function (callback) {
     wx.request({
-      url: 'https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=OyxjHvcGqXlmD3skUUt3GHEl&client_secret=MUMttTySPycE2U9U25MqlCxdoQCpOwfa',
+      url: 'https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=hP60f1uvdS14ShGxe8fKg4qx&client_secret=HVma2uRHsSF0iynTGWOCa3BIKXPkYFdY',
       data: {},
       header: {
         'content-type': 'application/x-www-form-urlencoded' // 默认值
       },
       success(res) {
         var token = res.data.access_token;
-        console.log(token);
+        console.log("token", token);
 
         return callback(token);
       }
@@ -91,7 +90,7 @@ Page({
   },
   getResult: function (token) {
     wx.request({
-      url: 'https://aip.baidubce.com/rest/2.0/image-classify/v1/plant?access_token=' + token, //仅为示例，并非真实的接口地址
+      url: 'https://aip.baidubce.com/rest/2.0/image-classify/v1/plant?access_token=' + token, 
       method: "post",
       data: {
         image: that.data.imgB64
