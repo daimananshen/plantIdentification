@@ -23,9 +23,7 @@ Page({
         this.content = dataList[i].baike_info
         this.dataName = dataList[i].name
         console.log(this.content)
-      }else{
-        this.content = '抱歉!暂时没有找到具体的内容呢~QAQ'
-      }
+      } 
     }
 
     this.setData({
