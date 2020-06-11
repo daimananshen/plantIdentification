@@ -1,0 +1,5 @@
+/* pages/feedback/feedback.wxss */
+.btn {
+  margin: 20rpx 30rpx;
+  border-radius: 10rpx;
+}

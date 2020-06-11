@@ -3,7 +3,10 @@
     "pages/index/index",
     "pages/myCenter/myCenter",
     "pages/takePhoto/takePhoto",
-    "pages/showData/showData"
+    "pages/showData/showData",
+    "pages/wechatReward/wechatReward",
+    "pages/feedback/feedback",
+    "pages/openSetting/openSetting"
   ],
   "window": {
     "backgroundTextStyle": "light",

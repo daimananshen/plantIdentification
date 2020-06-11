@@ -1,0 +1,2 @@
+<!--pages/openSetting/openSetting.wxml-->
+<button open-type='openSetting' class="btn" type='primary'>设置</button>

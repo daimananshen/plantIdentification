@@ -52,16 +52,31 @@ Page({
       //用户按了拒绝按钮
       wx.showModal({
         title: '警告',
-        content: '您点击了拒绝授权，将无法使用其他功能!',
+        content: '您点击了拒绝授权，将无法使用部分功能!',
         showCancel: false,
         confirmText: '返回授权',
         success: function (res) {
           if (res.confirm) {
-            
+
           }
         }
       })
     }
 
+  },
+  wechatReward() {
+    wx.navigateTo({
+      url: '../wechatReward/wechatReward'
+    })
+  },
+  feedback() {
+    wx.navigateTo({
+      url: '../feedback/feedback'
+    })
+  },
+  openSetting(){
+    wx.navigateTo({
+      url: '../openSetting/openSetting'
+    })
   }
 })
