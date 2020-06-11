@@ -43,11 +43,11 @@ Page({
 
   },
   //系统自带分享方法
-  onShareAppMessage: function () {
+  onShareAppMessage: function (res) {
+    if(res.from === 'button'){}
     return {
-      title: this.dataName,//转发标题
-      desc: this.content.description,//分享内容
-      path: '/pages/showData/showData',//转发路径，跳转路径
+      title: this.dataName, //转发标题
+      path: '/pages/takePhoto/takePhoto', //转发路径，跳转路径
       imgUrl: app.globalData.image
     }
   },
