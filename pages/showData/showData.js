@@ -8,7 +8,8 @@ Page({
   data: {
     dataList: '',
     content: '',
-    dataName: ''
+    dataName: '',
+    noData: ''
   },
 
   /**
@@ -20,16 +21,24 @@ Page({
 
     for (let i = 0; i < dataList.length; i++) {
       if (dataList[i].baike_info) {
+        console.log("23", dataList[i])
         this.content = dataList[i].baike_info
         this.dataName = dataList[i].name
-        console.log(this.content)
-      } 
+        // 改变标题名称
+        wx.setNavigationBarTitle({
+          title: this.dataName
+        })
+        console.log("26", this.content)
+      } else {
+        this.noData = '抱歉!暂时没有找到具体的内容呢~QAQ'
+      }
     }
 
     this.setData({
       img: app.globalData.image,
       dataInfo: this.content,
-      dataName: this.dataName
+      dataName: this.dataName,
+      noData: this.noData
     });
 
   },

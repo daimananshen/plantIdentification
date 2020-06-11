@@ -93,10 +93,9 @@ Page({
         'content-type': 'application/x-www-form-urlencoded' // 默认值
       },
       success(res) {
-        console.log(res.data);
         if (res.data) {
           getApp().globalData.getData = JSON.stringify(res.data.result);
-          wx.redirectTo({
+          wx.navigateTo({
             url: '../showData/showData'
           })
         } else {
