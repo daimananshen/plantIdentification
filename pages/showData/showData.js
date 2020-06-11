@@ -44,7 +44,6 @@ Page({
   },
   //系统自带分享方法
   onShareAppMessage: function () {
-    let users = wx.getStorageSync('user');
     return {
       title: this.dataName,//转发标题
       desc: this.content.description,//分享内容
