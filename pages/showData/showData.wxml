@@ -1,4 +1,5 @@
 <!--pages/showData/showData.wxml-->
 <image style="width:100%; height: 200px; " src="{{img}}"></image>
 
-<view class="result-content">{{itemName}}</view>
+<view class="resultTitle">{{dataName}}</view>
+<view class="result-content">{{dataInfo.description}}</view>

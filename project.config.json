@@ -28,7 +28,7 @@
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.11.1",
+	"libVersion": "2.10.0",
 	"appid": "wx18421dc427ce99c4",
 	"projectname": "plantIdentification",
 	"debugOptions": {

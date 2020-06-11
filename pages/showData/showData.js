@@ -6,26 +6,33 @@ Page({
    * 页面的初始数据
    */
   data: {
-    content:''
+    dataList: '',
+    content: '',
+    dataName: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app.globalData.image);
-    console.log(app.globalData.getData);
-    let length = app.globalData.getData;
 
-    for(let i = 0; i < length.length; ++i){
-      console.log(length[i])
+    let dataList = JSON.parse(app.globalData.getData)
+
+    for (let i = 0; i < dataList.length; i++) {
+      if (dataList[i].baike_info) {
+        this.content = dataList[i].baike_info
+        this.dataName = dataList[i].name
+        console.log(this.content)
+      }else{
+        this.content = '抱歉!暂时没有找到具体的内容呢~QAQ'
+      }
     }
 
-    // this.setData({
-    //   img: app.globalData.image,
-    //   content: app.globalData.getData
-    // });
-
+    this.setData({
+      img: app.globalData.image,
+      dataInfo: this.content,
+      dataName: this.dataName
+    });
 
   },
 

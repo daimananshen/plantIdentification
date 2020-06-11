@@ -1,8 +1,11 @@
 /* pages/showData/showData.wxss */
 .result-content {
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 14px;
   padding: 10px 0;
   font-family: '微软雅黑';
-  color: red;
 } 
+
+.resultTitle{
+  font-size: 16px;
+  font-weight: bold;
+}
