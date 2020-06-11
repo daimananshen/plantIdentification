@@ -4,4 +4,5 @@
 <view class="resultTitle">{{dataName}}</view>
 <view class="result-content" wx:if="{{dataInfo.description}}">{{dataInfo.description}}</view>
 <view class="result-content" wx:else>{{noData}}</view>
-<button type="primary" class="btn"  bindtap="share">分享</button>  
+
+<button type="primary" class="btn"  open-type="share">分享</button>  
