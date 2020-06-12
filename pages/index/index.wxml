@@ -1,1 +1,14 @@
 <!--index.wxml-->
+<view>
+  <view class="page-body">
+    <view class="page-section page-section-spacing swiper">
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{item}}" wx:key="key">
+          <swiper-item>
+            <image class="carouselImg" mode="aspectFill" src='{{item.image}}'></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+</view>
