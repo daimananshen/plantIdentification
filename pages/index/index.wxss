@@ -90,4 +90,5 @@ page {
   font-size: 12px;
   margin-top: 10rpx;
   margin-bottom: 20rpx;
+  line-height: 50rpx;
 }
