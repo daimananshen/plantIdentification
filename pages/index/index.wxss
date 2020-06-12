@@ -1,4 +1,4 @@
-/**index.wxss**/
+/* banner */
 
 page {
   background-color: #f4f4f4;
@@ -20,4 +20,74 @@ page {
 .carouselImg {
   width: 100%;
   height: inherit;
+}
+
+/* 猜您喜欢 */
+
+.like {
+  text-align: center;
+  font-size: 30rpx;
+  margin: 60rpx 20rpx;
+  flex-basis: 40%;
+  line-height: 1rpx;
+  color: #959594;
+}
+
+.lineLeft {
+  border-top: 1px solid #ebebec;
+  width: 40%;
+  float: left;
+}
+
+.lineRight {
+  border-top: 1px solid #ebebec;
+  float: right;
+  width: 40%;
+}
+
+/* 图片两栏显示  flex布局*/
+
+.likeGoods {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 40rpx;
+}
+
+.like-item {
+  width: 100%;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.like-item .img {
+  width: 92%;
+  height: 400rpx;
+  margin-top: 40rpx;
+  margin-left: 4%;
+}
+
+.likeName {
+  width: 92%;
+  margin-left: 4%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: -webkit-box;
+  white-space: normal !important;
+}
+
+.likeTitle {
+  font-weight: 800;
+  margin-top: 20rpx;
+}
+
+.likeContent {
+  font-size: 12px;
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
 }
