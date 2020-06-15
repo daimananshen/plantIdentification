@@ -6,7 +6,8 @@
     "pages/showData/showData",
     "pages/wechatReward/wechatReward",
     "pages/feedback/feedback",
-    "pages/openSetting/openSetting"
+    "pages/openSetting/openSetting",
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

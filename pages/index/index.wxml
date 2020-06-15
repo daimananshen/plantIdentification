@@ -20,11 +20,11 @@
   </view>
   <!-- <scroll-view scroll-y lower-threshold="100" bindscrolltolower="scrollToLower" style='height: 100vh;'> -->
     <view class="likeGoods">
-      <view class="like-item" wx:for="{{item}}" wx:key="key" wx:for-index="key" wx:for-item="v">
-        <image class='img' mode="aspectFill" src='{{v.image}}'>
+      <view class="like-item" wx:for="{{items}}" wx:key="key" wx:for-index="key" wx:for-item="v" >
+        <image class='img' mode="aspectFill" src='{{v.image}}' data-id='{{v._id}}' bindtap="viewDetail">
         </image>
         <rich-text class="likeName likeTitle">{{v.title}}</rich-text>
-        <rich-text class="likeName likeContent">{{v.content}}</rich-text>
+        <rich-text class="likeName likeContent" nodes="{{v.content}}"></rich-text>
       </view>
     </view>
     <!-- <view style="text-align: center;margin: 10px;">

@@ -1,0 +1,27 @@
+/* pages/detail/detail.wxss */
+.title{
+  font-size:14px;
+  margin: 20rpx;
+  font-weight: 600;
+}
+
+.dateTime{
+  font-size:14px;
+  margin: 20rpx;
+}
+
+.likeContent{
+  font-size: 14px;
+}
+
+.likeName {
+  width: 94%;
+  margin-left: 3%;
+  display: -webkit-box;
+}
+
+.img {
+  width: 94%;
+  height: 400rpx;
+  margin: 20rpx;
+}

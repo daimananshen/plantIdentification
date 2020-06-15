@@ -5,6 +5,7 @@ Page({
     interval: 5000,
     duration: 500,
     item: [],
+    items: [],
   },
   /**
   
@@ -17,6 +18,9 @@ Page({
     //加载轮播图
 
     this.getBanner();
+
+    // 获取文章
+    this.getArticle();
 
   },
 
@@ -35,7 +39,6 @@ Page({
     //promise
 
     banner.get().then(res => {
-        console.log(res)
 
         this.setData({
           item: res.data
@@ -46,5 +49,40 @@ Page({
         console.log(err)
       })
 
+  },
+
+  // 获取文章
+  getArticle() {
+
+    // 调用默认环境数据库的引用
+
+    const db = wx.cloud.database()
+
+    // tables数据库创建的集合名称
+
+    const article = db.collection('article')
+
+    //promise
+
+    article.get().then(res => {
+
+        this.setData({
+          items: res.data
+        })
+
+      })
+      .catch(err => {
+        console.log(err)
+      })
+
+  },
+  // 查看详情
+  viewDetail: function(e) {
+    let id = e.target.dataset.id;
+
+    wx.navigateTo({
+      url: '../detail/detail?id=' + id
+    })
+    console.log(e)
   }
 })
