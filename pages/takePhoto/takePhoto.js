@@ -39,7 +39,7 @@ Page({
     })
   },
   /**
-   * 转b64
+   * 转base64
    */
   getB64ByUrl: function (url) {
     const FileSystemManager = wx.getFileSystemManager();
@@ -103,9 +103,6 @@ Page({
             content: '网络出小差'
           });
         }
-
-
-
       }
     });
   },

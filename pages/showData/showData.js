@@ -15,20 +15,21 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
 
     let dataList = JSON.parse(app.globalData.getData)
-
+    console.log('dataList', dataList)
     for (let i = 0; i < dataList.length; i++) {
       if (dataList[i].baike_info) {
-       
+        console.log('dataList[i]', dataList[i])
         this.content = dataList[i].baike_info
         this.dataName = dataList[i].name
+        this.score = [(dataList[i].score).toFixed(2)]*100
         // 改变标题名称
         wx.setNavigationBarTitle({
           title: this.dataName
         })
-        
+
       } else {
         this.noData = '抱歉!暂时没有找到具体的内容呢~QAQ'
       }
@@ -38,13 +39,14 @@ Page({
       img: app.globalData.image,
       dataInfo: this.content,
       dataName: this.dataName,
-      noData: this.noData
+      noData: this.noData,
+      score: this.score
     });
 
   },
   //系统自带分享方法
-  onShareAppMessage: function (res) {
-    if(res.from === 'button'){}
+  onShareAppMessage: function(res) {
+    if (res.from === 'button') {}
     return {
       title: this.dataName, //转发标题
       path: '/pages/takePhoto/takePhoto', //转发路径，跳转路径
@@ -55,49 +57,49 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })
