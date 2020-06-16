@@ -93,5 +93,8 @@ Page({
       url: '../bannerDetail/bannerDetail?id=' + id
     })
     console.log(e)
-  }
+  },
+  // scrollToLower(){
+
+  // }
 })

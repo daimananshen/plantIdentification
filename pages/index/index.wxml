@@ -11,6 +11,9 @@
       </swiper>
     </view>
   </view>
+  <!-- 其他功能 -->
+  <view>文章</view>
+
   <!-- 猜您喜欢 后期改成上拉加载-->
   <view>
     <view class="like">
@@ -20,7 +23,7 @@
   </view>
   <!-- <scroll-view scroll-y lower-threshold="100" bindscrolltolower="scrollToLower" style='height: 100vh;'> -->
     <view class="likeGoods">
-      <view class="like-item" wx:for="{{items}}" wx:key="key" wx:for-index="key" wx:for-item="v" >
+      <view class="like-item" wx:for="{{items}}" wx:key="key" wx:for-index="key" wx:for-item="v">
         <image class='img' mode="aspectFill" src='{{v.image}}' data-id='{{v._id}}' bindtap="viewDetail">
         </image>
         <rich-text class="likeName likeTitle">{{v.title}}</rich-text>
