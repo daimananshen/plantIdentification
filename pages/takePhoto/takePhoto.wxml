@@ -1,5 +1,5 @@
 <!--pages/takePhoto/takePhoto.wxml-->
-<image mode="aspectFill" src="{{img}}" ></image>
+<image mode="aspectFill" style='width:100%' src="{{img}}" ></image>
 <button type="primary" class="btn"  bindtap="chooseimgTap">上传照片</button>            
 <!-- 返回结果 -->
 <view class="result-content">{{content}}</view>

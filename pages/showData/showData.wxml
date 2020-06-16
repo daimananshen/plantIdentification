@@ -1,5 +1,5 @@
 <!--pages/showData/showData.wxml-->
-<image mode="aspectFill" src="{{img}}"></image>
+<image mode="aspectFill" style='width:100%' src="{{img}}"></image>
 
 <view class="resultTitle">{{dataName}}</view>
 <view class="result-content" wx:if="{{dataInfo.description}}">{{dataInfo.description}}</view>
