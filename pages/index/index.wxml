@@ -5,7 +5,7 @@
       <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
         <block wx:for="{{item}}" wx:key="key">
           <swiper-item>
-            <image class="carouselImg" mode="aspectFill" src='{{item.image}}'></image>
+            <image class="carouselImg" mode="aspectFill" src='{{item.image}}' data-id='{{item._id}}' bindtap="bannerDetail"></image>
           </swiper-item>
         </block>
       </swiper>

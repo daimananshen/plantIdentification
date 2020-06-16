@@ -7,7 +7,8 @@
     "pages/wechatReward/wechatReward",
     "pages/feedback/feedback",
     "pages/openSetting/openSetting",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/bannerDetail/bannerDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

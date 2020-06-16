@@ -1,0 +1,8 @@
+<!--pages/bannerDetail/bannerDetail.wxml-->
+<view class='title'>{{item.title}}</view>
+<view class='dateTime'>更新时间:{{date}}</view>
+<view>
+  <image class='img' mode="aspectFill" src='{{item.image}}'>
+  </image>
+</view>
+<rich-text class='likeName likeContent' nodes="{{item.content}}"></rich-text>

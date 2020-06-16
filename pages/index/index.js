@@ -84,5 +84,14 @@ Page({
       url: '../detail/detail?id=' + id
     })
     console.log(e)
+  },
+  // banner详情
+  bannerDetail(e){
+    let id = e.target.dataset.id;
+
+    wx.navigateTo({
+      url: '../bannerDetail/bannerDetail?id=' + id
+    })
+    console.log(e)
   }
 })
