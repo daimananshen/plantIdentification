@@ -2,7 +2,7 @@
 <view>
   <view class="page-body">
     <view class="page-section page-section-spacing swiper">
-      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <swiper indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}"	 indicator-active-color="{{indicatorActiveColor}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
         <block wx:for="{{item}}" wx:key="key">
           <swiper-item>
             <image class="carouselImg" mode="aspectFill" src='{{item.image}}' data-id='{{item._id}}' bindtap="bannerDetail"></image>
@@ -11,8 +11,29 @@
       </swiper>
     </view>
   </view>
-  <!-- 其他功能 -->
-  <!-- <view>文章</view> -->
+  <!-- 功能 此处可以调用接口-->
+  <view class='classification'>
+    <view class="main">
+      <view class='muluLogo'>
+        <image mode="aspectFill" class='muluImg' src='../../images/wikipedia.png'></image>
+      </view>
+      <view class='muluLogo'>
+        <image mode="aspectFill" class='muluImg' src='../../images/notice.png'></image>
+      </view>
+      <view class='muluLogo'>
+        <image mode="aspectFill" class='muluImg' src='../../images/wikipedia.png'></image>
+      </view>
+      <view class='muluLogo'>
+        <image mode="aspectFill" class='muluImg' src='../../images/ranking.png'></image>
+      </view>
+    </view>
+    <view class="main">
+      <view class='mulu'>百科</view>
+      <view class='mulu'>文章</view>
+      <view class='mulu'>食疗</view>
+      <view class='mulu'>排行</view>
+    </view>
+  </view>
 
   <!-- 猜您喜欢 后期改成上拉加载-->
   <view>

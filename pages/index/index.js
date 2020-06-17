@@ -2,6 +2,8 @@ Page({
   data: {
     indicatorDots: true,
     autoplay: true,
+    indicatorActiveColor:"#07c160",
+    indicatorColor:"white",
     interval: 5000,
     duration: 500,
     item: [],

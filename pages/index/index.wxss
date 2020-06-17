@@ -22,12 +22,38 @@ page {
   height: inherit;
 }
 
+/* 导航栏 */
+.classification{background: #fff;}
+.main {
+  width: 100%;
+  display: -webkit-flex; /* Safari */
+  -webkit-flex-direction: row; /* Safari 6.1+ */
+  display: flex;
+  flex-direction: row;
+}
+
+.main .muluLogo {
+  width: 25%;
+  margin: 30rpx 0 10rpx 7.5%;
+}
+
+.muluImg {
+  width: 64rpx;
+  height: 64rpx;
+}
+
+.main .mulu {
+  width: 25%;
+  margin: 0rpx 0 20rpx 8%;
+  font-size: 28rpx;
+}
+
 /* 猜您喜欢 */
 
 .like {
   text-align: center;
   font-size: 30rpx;
-  margin: 60rpx 20rpx;
+  margin: 60rpx 20rpx 25rpx;
   flex-basis: 40%;
   line-height: 1rpx;
   color: #959594;
