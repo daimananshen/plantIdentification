@@ -12,7 +12,7 @@
     </view>
   </view>
   <!-- 其他功能 -->
-  <view>文章</view>
+  <!-- <view>文章</view> -->
 
   <!-- 猜您喜欢 后期改成上拉加载-->
   <view>
@@ -21,7 +21,7 @@
       <view class="lineRight"></view>
     </view>
   </view>
-  <!-- <scroll-view scroll-y lower-threshold="100" bindscrolltolower="scrollToLower" style='height: 100vh;'> -->
+  <scroll-view scroll-y lower-threshold="100" onReachBottom="onReachBottom" style='height: 100vh;'>
     <view class="likeGoods">
       <view class="like-item" wx:for="{{items}}" wx:key="key" wx:for-index="key" wx:for-item="v">
         <image class='img' mode="aspectFill" src='{{v.image}}' data-id='{{v._id}}' bindtap="viewDetail">
@@ -30,10 +30,5 @@
         <rich-text class="likeName likeContent" nodes="{{v.content}}"></rich-text>
       </view>
     </view>
-    <!-- <view style="text-align: center;margin: 10px;">
-      <view wx:if="{{loading}}">加载中...</view>
-      <view wx:if="{{noMore}}">没有更多了</view>
-      <view wx:if="{{loadingFailed}}">数据加载失败,请重试</view>
-    </view> -->
-  <!-- </scroll-view> -->
+  </scroll-view>
 </view>

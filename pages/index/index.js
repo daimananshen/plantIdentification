@@ -5,7 +5,9 @@ Page({
     interval: 5000,
     duration: 500,
     item: [],
-    items: [],
+    items: '',
+    page: 1, //第几页
+    limit: 5, //每页的数量
   },
   /**
   
@@ -52,7 +54,14 @@ Page({
   },
 
   // 获取文章
-  getArticle() {
+  getArticle(callback) {
+
+    if (!callback) {
+      callback = res => {}
+    }
+    wx.showLoading({
+      title: '数据加载中',
+    })
 
     // 调用默认环境数据库的引用
 
@@ -62,19 +71,49 @@ Page({
 
     const article = db.collection('article')
 
-    //promise
-
     article.get().then(res => {
+        var that = this;
+        let contentList = that.data.items;
 
-        this.setData({
-          items: res.data
-        })
+        wx.hideLoading();
+        callback();
+
+        if (that.data.page == 1) {
+          //第一页的时候直接赋值，contentList  为空避免数据重复
+          contentList = [];
+          that.setData({
+            items: res.data
+          })
+        }
+
+        if (res.data.length < that.data.limit) {
+          that.setData({
+            items: contentList.concat(res.data),
+            hasMoreData: false, //没有数据了
+          })
+        } else {
+          that.setData({
+            items: contentList.concat(res.data),
+            hasMoreData: true, //还有数据
+            page: that.data.page + 1
+          })
+        }
 
       })
       .catch(err => {
         console.log(err)
       })
 
+  },
+  // 上拉加载数据
+  onReachBottom: function() {
+    if (this.data.hasMoreData == false) {
+      this.getArticle()
+    } else {
+      wx.showToast({
+        title: '没有更多数据',
+      })
+    }
   },
   // 查看详情
   viewDetail: function(e) {
@@ -86,15 +125,12 @@ Page({
     console.log(e)
   },
   // banner详情
-  bannerDetail(e){
+  bannerDetail(e) {
     let id = e.target.dataset.id;
 
     wx.navigateTo({
       url: '../bannerDetail/bannerDetail?id=' + id
     })
     console.log(e)
-  },
-  // scrollToLower(){
-
-  // }
+  }
 })

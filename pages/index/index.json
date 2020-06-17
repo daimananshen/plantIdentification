@@ -3,5 +3,6 @@
   "backgroundTextStyle": "light",
   "navigationBarBackgroundColor": "#07c160",
   "navigationBarTitleText": "植物学家",
-  "navigationBarTextStyle": "white"
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true
 }

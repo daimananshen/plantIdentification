@@ -19,7 +19,6 @@ Page({
     db.collection('article').doc(options.id).get({
       success: res => {
         // res.data 包含该记录的数据
-        console.log(res.data)
         this.setData({
           item: res.data,
           date: util.formatTime(res.data.updateTime)
