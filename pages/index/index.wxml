@@ -21,7 +21,7 @@
         <image mode="aspectFill" class='muluImg' src='../../images/notice.png'></image>
       </view>
       <view class='muluLogo'>
-        <image mode="aspectFill" class='muluImg' src='../../images/wikipedia.png'></image>
+        <image mode="aspectFill" class='muluImg' src='../../images/plant.png'></image>
       </view>
       <view class='muluLogo'>
         <image mode="aspectFill" class='muluImg' src='../../images/ranking.png'></image>
@@ -30,7 +30,7 @@
     <view class="main">
       <view class='mulu'>百科</view>
       <view class='mulu'>文章</view>
-      <view class='mulu'>食疗</view>
+      <view class='mulu'>培植</view>
       <view class='mulu'>排行</view>
     </view>
   </view>
