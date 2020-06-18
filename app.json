@@ -8,7 +8,9 @@
     "pages/feedback/feedback",
     "pages/openSetting/openSetting",
     "pages/detail/detail",
-    "pages/bannerDetail/bannerDetail"
+    "pages/bannerDetail/bannerDetail",
+    "pages/wikipedia/wikipedia",
+    "pages/notice/notice"
   ],
   "window": {
     "backgroundTextStyle": "light",

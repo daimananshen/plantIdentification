@@ -2,7 +2,7 @@
 <view>
   <view class="page-body">
     <view class="page-section page-section-spacing swiper">
-      <swiper indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}"	 indicator-active-color="{{indicatorActiveColor}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <swiper indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
         <block wx:for="{{item}}" wx:key="key">
           <swiper-item>
             <image class="carouselImg" mode="aspectFill" src='{{item.image}}' data-id='{{item._id}}' bindtap="bannerDetail"></image>
@@ -15,10 +15,10 @@
   <view class='classification'>
     <view class="main">
       <view class='muluLogo'>
-        <image mode="aspectFill" class='muluImg' src='../../images/wikipedia.png'></image>
+        <image mode="aspectFill" bindtap='wikipedia' class='muluImg' src='../../images/wikipedia.png'></image>
       </view>
       <view class='muluLogo'>
-        <image mode="aspectFill" class='muluImg' src='../../images/notice.png'></image>
+        <image mode="aspectFill" bindtap='notice' class='muluImg' src='../../images/notice.png'></image>
       </view>
       <view class='muluLogo'>
         <image mode="aspectFill" class='muluImg' src='../../images/plant.png'></image>
@@ -28,8 +28,8 @@
       </view>
     </view>
     <view class="main">
-      <view class='mulu'>百科</view>
-      <view class='mulu'>文章</view>
+      <view class='mulu' bindtap='wikipedia'>百科</view>
+      <view class='mulu' bindtap='notice'>文章</view>
       <view class='mulu'>培植</view>
       <view class='mulu'>排行</view>
     </view>

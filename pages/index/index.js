@@ -124,7 +124,6 @@ Page({
     wx.navigateTo({
       url: '../detail/detail?id=' + id
     })
-    console.log(e)
   },
   // banner详情
   bannerDetail(e) {
@@ -134,5 +133,15 @@ Page({
       url: '../bannerDetail/bannerDetail?id=' + id
     })
     console.log(e)
+  },
+  wikipedia(){
+    wx.navigateTo({
+      url: '../wikipedia/wikipedia'
+    })
+  },
+  notice(){
+    wx.navigateTo({
+      url: '../notice/notice'
+    })
   }
 })
