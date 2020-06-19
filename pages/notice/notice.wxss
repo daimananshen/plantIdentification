@@ -1,1 +1,33 @@
 /* pages/notice/notice.wxss */
+
+.content {
+  border: 1px solid #6f6f6f;
+  border-width: 3rpx;
+  background: #EEEEEE;
+  margin-top: 20rpx;
+}
+
+.title{border: 1px solid #6f6f6f;margin-top: 20rpx;}
+
+.h2 {
+  margin-left: 32rpx;
+  margin-top: 10rpx;
+}
+
+.imageUrl {
+  border: 1px solid #6f6f6f;
+  width: 30%;
+  margin-left: 32rpx;
+  margin-top: 20rpx;
+  height: 250rpx;
+}
+
+.upload {
+  margin-top: 20rpx;
+  margin-left: 25rpx;
+  width: 250rpx;
+}
+
+.submit{
+  margin: 15rpx 15px 0 ;
+}
