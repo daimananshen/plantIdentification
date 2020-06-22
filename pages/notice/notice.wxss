@@ -29,5 +29,5 @@
 }
 
 .submit{
-  margin: 15rpx 15px 0 ;
+  margin: 20rpx ;
 }

@@ -44,33 +44,58 @@ Page({
     })
   },
   formSubmit(e) {
-    //把数据给云数据库
-    const db = wx.cloud.database({});
-    const cont = db.collection('article');
-    cont.add({
-      data: {
-        title: e.detail.value.input,
-        content: e.detail.value.content,
-        image: imgURL,
-        updateTime: new Date()
-      },
-      success: function(res) {
+    
+    let title = e.detail.value.title;
+    let content = e.detail.value.content;
 
-        wx.showModal({
-          title: '成功',
-          content: '您已经发布内容成功',
-          showCancel: false,
-          success(res) {
-            if (res.confirm) {
-              console.log(res.confirm)
-              wx.navigateTo({
-                url: '../index/index'
-              })
+    if (title == '') {
+      wx.showToast({
+        title: '标题不能为空',
+        icon: "none"
+      })
+      return;
+    } else if (content == '') {
+      wx.showToast({
+        title: '内容不能为空',
+        icon: "none"
+      })
+      return;
+    } else if (imgURL == '') {
+      wx.showToast({
+        title: '图片不能为空',
+        icon: "none"
+      })
+      return;
+    } else {
+      //把数据给云数据库
+      const db = wx.cloud.database({});
+      const cont = db.collection('article');
+      cont.add({
+        data: {
+          title: title,
+          content: content,
+          image: imgURL,
+          updateTime: new Date()
+        },
+        success: function(res) {
+
+          wx.showModal({
+            title: '成功',
+            content: '您已经发布内容成功',
+            showCancel: false,
+            success(res) {
+              if (res.confirm) {
+                setTimeout(function() {
+                  wx.reLaunch({
+                    url: '../index/index'
+                  })
+                }, 1000);
+              }
             }
-          }
-        })
-      }
-    });
+          })
+        }
+      });
+    }
   },
 
 })

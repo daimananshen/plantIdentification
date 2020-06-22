@@ -4,7 +4,7 @@
     <view class="weui-cell weui-cell_input">
       <view style="margin: 30rpx;">
         标题
-        <input placeholder="最多只能输入20个字" name="input" class='title' maxlength="20"></input>
+        <input placeholder="最多只能输入20个字" name="title" class='title' maxlength="20"></input>
       </view>
       <view style="margin: 30rpx;">
         发布内容
@@ -14,8 +14,8 @@
     <view class='h2'>展示图片(1张)</view>
     <view>
       <image src="{{imgURL}}"  class='imageUrl'></image>
-      <button bindtap="upload"  class='upload'>上传图片</button>
+      <button bindtap="upload" type="primary" class='upload'>上传图片</button>
     </view>
   </view>
-  <button form-type="submit"> 提交 </button>
+  <button type="primary" class='submit' form-type="submit"> 提交 </button>
 </form>
