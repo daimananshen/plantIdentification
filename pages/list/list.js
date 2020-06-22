@@ -1,20 +1,22 @@
+// pages/list/list.js
 //获取应用实例
 const app = getApp()
 
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo') //判断小程序的API，回调，参数，组件等是否在当前版本可用。
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../myCenter/myCenter'
-    })
-  },
-  onLoad: function() {
 
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -42,7 +44,7 @@ Page({
       })
     }
   },
-  getUserInfo: function(e) {
+  getUserInfo: function (e) {
     if (e.detail.userInfo) {
       app.globalData.userInfo = e.detail.userInfo
       this.setData({
@@ -56,7 +58,7 @@ Page({
         content: '您点击了拒绝授权，将无法使用部分功能!',
         showCancel: false,
         confirmText: '返回授权',
-        success: function(res) {
+        success: function (res) {
           if (res.confirm) {
 
           }
@@ -64,20 +66,5 @@ Page({
       })
     }
 
-  },
-  wechatReward() {
-    wx.navigateTo({
-      url: '../wechatReward/wechatReward'
-    })
-  },
-  feedback() {
-    wx.navigateTo({
-      url: '../feedback/feedback'
-    })
-  },
-  openSetting() {
-    wx.navigateTo({
-      url: '../openSetting/openSetting'
-    })
   }
 })

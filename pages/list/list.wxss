@@ -1,0 +1,81 @@
+/* pages/list/list.wxss */
+
+.list {
+  margin: 20rpx;
+}
+
+.listData {
+  position: relative;
+  padding-left: 30px;
+  height: 36px;
+  line-height: 36px;
+  display: flex;
+  flex-direction: row;
+}
+
+.listData:after {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  color: #fff;
+  background: #999;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 8px;
+}
+
+.listData:first-child:after {
+  content: "1";
+  background: #fd8c84;
+}
+
+.listData:nth-child(2):after {
+  content: "2";
+  background: #fc9;
+}
+
+.listData:nth-child(3):after {
+  content: "3";
+  background: #7fd75a;
+}
+
+.listData:nth-child(4):after {
+  content: "4";
+  background: #ccf;
+}
+
+.listData:nth-child(5):after {
+  content: "5";
+  background: #60c4fd;
+}
+
+.listData:nth-child(6):after {
+  content: "6";
+}
+
+.listData:nth-child(7):after {
+  content: "7";
+}
+
+.listData:nth-child(8):after {
+  content: "8";
+}
+
+.nickName {
+  margin: 10rpx 50rpx;
+}
+
+.userinfo-avatar {
+  width: 60rpx;
+  height: 60rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}

@@ -10,7 +10,8 @@
     "pages/detail/detail",
     "pages/bannerDetail/bannerDetail",
     "pages/wikipedia/wikipedia",
-    "pages/notice/notice"
+    "pages/notice/notice",
+    "pages/list/list"
   ],
   "window": {
     "backgroundTextStyle": "light",

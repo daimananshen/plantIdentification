@@ -143,5 +143,10 @@ Page({
     wx.navigateTo({
       url: '../notice/notice'
     })
+  },
+  list(){
+    wx.navigateTo({
+      url: '../list/list'
+    })
   }
 })

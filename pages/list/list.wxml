@@ -1,0 +1,15 @@
+<!--pages/list/list.wxml-->
+<view class='list'>
+  <view class='listData'>
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+    <view class='nickName'>{{userInfo.nickName}}</view>
+    <view class='nickName'>1000</view>
+  </view>
+  <!-- <view class='listData'>input[type=file]去掉</view>
+  <view class='listData'>Jetbrains系列激活补丁</view>
+  <view class='listData'>js获取input上传文件的文件名</view>
+  <view class='listData'>HTML img src图片路径不存在</view>
+  <view class='listData'>HTML引入文件的绝对路径</view>
+  <view class='listData'>HTML img src图片路径不存在</view>
+  <view class='listData'>HTML引入文件的绝对路径</view> -->
+</view>
