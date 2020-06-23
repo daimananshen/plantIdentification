@@ -1,1 +1,67 @@
 /* pages/wikipedia/wikipedia.wxss */
+
+.hr {
+  width: 100%;
+  height: 15px;
+  background-color: #f4f5f6;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+}
+
+.title {
+  padding-top: 20rpx;
+  padding-left: 20rpx;
+  font-size: 15px;
+}
+
+.line {
+  border: 1px solid #ccc;
+  opacity: 0.2;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.detail2 {
+  font-size: 15px;
+  position: absolute;
+  right: 50rpx;
+  color: #888;
+}
+
+.arrow {
+  width: 32rpx;
+  height: 32rpx;
+  padding-top:35rpx;
+}
+
+.eye {
+  margin-left: 10rpx;
+}
+
+.smallPhoto {
+  width: 120rpx;
+  height: 120rpx;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+  border-radius: 15rpx;
+}
+
+.tips {
+  font-size: 24rpx;
+  border: 1px solid #07c160;
+  float: left;
+  margin: 10rpx;
+  padding: 5rpx 10rpx;
+  color: #07c160;
+}
+
+.name {
+  margin-left: 10rpx;
+}

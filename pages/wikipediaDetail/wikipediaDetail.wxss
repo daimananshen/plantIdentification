@@ -1,0 +1,10 @@
+/* pages/wikipediaDetail/wikipediaDetail.wxss */
+.likeContent{
+  font-size: 14px;
+}
+
+.likeName {
+  width: 94%;
+  margin-left: 3%;
+  display: -webkit-box;
+}

@@ -18,10 +18,8 @@ Page({
   onLoad: function(options) {
 
     let dataList = JSON.parse(app.globalData.getData)
-    console.log('dataList', dataList)
     for (let i = 0; i < dataList.length; i++) {
       if (dataList[i].baike_info) {
-        console.log('dataList[i]', dataList[i])
         this.content = dataList[i].baike_info
         this.dataName = dataList[i].name
         this.score = [(dataList[i].score).toFixed(2)]*100

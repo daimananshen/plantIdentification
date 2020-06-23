@@ -1,0 +1,7 @@
+<!--pages/wikipediaDetail/wikipediaDetail.wxml-->
+<image mode="aspectFill" style='width:100%' src="{{item.image}}"></image>
+<view class="resultTitle">{{item.name}}</view>
+<view class="resultScore">{{item.tips}}</view>
+<rich-text class='likeName likeContent' nodes="{{item.explain}}"></rich-text>
+<rich-text class='likeName likeContent' nodes="{{item.value}}"></rich-text>
+
