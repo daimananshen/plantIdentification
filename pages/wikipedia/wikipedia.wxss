@@ -31,7 +31,7 @@
 .detail2 {
   font-size: 15px;
   position: absolute;
-  right: 50rpx;
+  left:80%;
   color: #888;
 }
 

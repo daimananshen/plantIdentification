@@ -12,7 +12,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    this.getWikipedia()
+  },
+  /**
+ * 生命周期函数--监听页面显示
+ * 从详情页返回到本页，只会调用onshow刷新数据
+ */
+  onShow: function () {
     this.getWikipedia()
   },
   getWikipedia() {
