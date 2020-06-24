@@ -31,7 +31,7 @@ Page({
     db.collection('wikipedia').doc(getId).get({
       success: res => {
         this.count = res.data.eye 
-
+        // update接口需要数据库有_openid,所以需要加个获取—_openid的云函数
         db.collection('wikipedia').doc(getId).update({
             // data 传入需要局部更新的数据
             data: {
