@@ -1,0 +1,20 @@
+<!--pages/cultivating/cultivating.wxml-->
+<view wx:for="{{items}}" wx:key="key" wx:for-index="key" wx:for-item="v">
+  <view class='item'>
+    <view>
+      <image class='smallPhoto' mode="aspectFill" src='{{v.image}}' data-id='{{v._id}}' bindtap='viewDetail'></image>
+    </view>
+    <view>
+      <view class="title">{{v.name}}</view>
+      <view class='name'>
+        <view class="tips" wx:for="{{v.tips}}" wx:key="key" wx:for-index="key" wx:for-item="lable">{{lable}}</view>
+      </view>
+    </view>
+
+    <view class="detail2">
+      <image class='arrow' src='../../images/eye.png'></image>
+      <text class='eye'>{{v.eye>10000?(((v.eye-v.eye%1000)/10000+'万')):(v.eye)}}</text>
+    </view>
+  </view>
+  <view class="line"></view>
+</view>

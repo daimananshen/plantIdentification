@@ -148,5 +148,10 @@ Page({
     wx.navigateTo({
       url: '../list/list'
     })
+  },
+  cultivating(){
+    wx.navigateTo({
+      url: '../cultivating/cultivating'
+    })
   }
 })

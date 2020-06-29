@@ -11,3 +11,9 @@ plantIdentification
 3、百科:搜索框、内容
 4、签到功能：https://www.jianshu.com/p/4250e193a4f0
 5、排行榜
+
+__________________________
+
+授权bug，没有保存数据
+
+排行榜bug,同上

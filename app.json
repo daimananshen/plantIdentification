@@ -11,6 +11,8 @@
     "pages/bannerDetail/bannerDetail",
     "pages/wikipedia/wikipedia",
     "pages/wikipediaDetail/wikipediaDetail",
+    "pages/cultivating/cultivating",
+    "pages/cultivatingDetail/cultivatingDetail",
     "pages/notice/notice",
     "pages/list/list"
   ],

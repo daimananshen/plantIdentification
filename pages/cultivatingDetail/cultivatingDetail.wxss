@@ -1,0 +1,23 @@
+/* pages/cultivatingDetail/cultivatingDetail.wxss */
+.resultTitle{
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 10px 0 10px;
+  text-align: center;
+}
+
+.resultScore{
+  font-size: 14px;
+  padding: 10rpx 20rpx 20rpx 20rpx;
+  font-family: '微软雅黑';
+}
+
+.likeContent{
+  font-size: 14px;
+}
+
+.likeName {
+  width: 94%;
+  margin-left: 3%;
+  display: -webkit-box;
+}
