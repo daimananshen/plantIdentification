@@ -139,7 +139,7 @@ Page({
       url: '../wikipedia/wikipedia'
     })
   },
-  notice(){
+  publish(){
     wx.navigateTo({
       url: '../notice/notice'
     })
@@ -152,6 +152,11 @@ Page({
   cultivating(){
     wx.navigateTo({
       url: '../cultivating/cultivating'
+    })
+  },
+  sign(){
+    wx.navigateTo({
+      url: '../sign/sign'
     })
   }
 })

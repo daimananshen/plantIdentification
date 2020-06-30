@@ -33,8 +33,8 @@ page {
 }
 
 .main .muluLogo {
-  width: 25%;
-  margin: 30rpx 0 10rpx 7.5%;
+  width: 20%;
+  margin: 30rpx 0 10rpx 5%;
 }
 
 .muluImg {
@@ -43,8 +43,8 @@ page {
 }
 
 .main .mulu {
-  width: 25%;
-  margin: 0rpx 0 20rpx 8%;
+  width: 20%;
+  margin: 0rpx 0 20rpx 5.5%;
   font-size: 28rpx;
 }
 

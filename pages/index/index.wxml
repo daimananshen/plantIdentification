@@ -18,7 +18,7 @@
         <image mode="aspectFill" bindtap='wikipedia' class='muluImg' src='../../images/wikipedia.png'></image>
       </view>
       <view class='muluLogo'>
-        <image mode="aspectFill" bindtap='notice' class='muluImg' src='../../images/notice.png'></image>
+        <image mode="aspectFill" bindtap='publish' class='muluImg' src='../../images/publish.png'></image>
       </view>
       <view class='muluLogo'>
         <image mode="aspectFill" bindtap='cultivating' class='muluImg' src='../../images/plant.png'></image>
@@ -26,12 +26,16 @@
       <view class='muluLogo'>
         <image mode="aspectFill" bindtap='list' class='muluImg' src='../../images/ranking.png'></image>
       </view>
+      <view class='muluLogo'>
+        <image mode="aspectFill" bindtap='sign' class='muluImg' src='../../images/sign.png'></image>
+      </view>
     </view>
     <view class="main">
       <view class='mulu' bindtap='wikipedia'>百科</view>
-      <view class='mulu' bindtap='notice'>文章</view>
+      <view class='mulu' bindtap='publish'>发布</view>
       <view class='mulu' bindtap='cultivating'>培植</view>
       <view class='mulu' bindtap='list'>排行</view>
+      <view class='mulu' bindtap='sign'>签到</view>
     </view>
   </view>
 

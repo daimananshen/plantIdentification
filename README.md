@@ -1,4 +1,4 @@
-plantIdentification
+项目名称：plantIdentification
 
 小程序名称：植物学家
 
@@ -6,14 +6,11 @@ plantIdentification
 
 --------------------------
 
-1、积分
+1、签到积分
 2、头像处显示等级
 3、百科:搜索框、内容
-4、签到功能：https://www.jianshu.com/p/4250e193a4f0
+4、签到功能：https://upload-images.jianshu.io/upload_images/9691805-060b4eb6622412bb.jpg?imageMogr2/auto-orient/strip|imageView2/2/format/webp
 5、排行榜
-
-__________________________
-
-授权bug，没有保存数据
-
-排行榜bug,同上
+6、好友功能
+7、朋友圈
+8、朋友圈设置

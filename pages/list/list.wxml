@@ -5,11 +5,4 @@
     <view class='nickName'>{{userInfo.nickName}}</view>
     <view class='nickName'></view>
   </view>
-  <!-- <view class='listData'>input[type=file]去掉</view>
-  <view class='listData'>Jetbrains系列激活补丁</view>
-  <view class='listData'>js获取input上传文件的文件名</view>
-  <view class='listData'>HTML img src图片路径不存在</view>
-  <view class='listData'>HTML引入文件的绝对路径</view>
-  <view class='listData'>HTML img src图片路径不存在</view>
-  <view class='listData'>HTML引入文件的绝对路径</view> -->
 </view>
