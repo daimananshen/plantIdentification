@@ -19,11 +19,13 @@
     <!-- 填补空格-->
     <view wx:for="{{nbsp}}" wx:key="item.id" style="color:#fff;">空</view>
     <!-- 已过日期 + 已签到日期-->
+    <!--循环日期-->
+    <!-- 当天以前 -->
     <view wx:for="{{date-1}}" wx:key="item.id">
       <text wx:if="{{item+1==calendarSignData[item+1]}}" style="color:#C589CF;">
         <text class="iconfont icon-yiqiandao"></text>       </text>
       <text wx:else>{{item+1}}</text>     </view>
-    <!-- 已签到日期 || 今日-->
+    <!-- 已签到日期 || 今日/当天-->
     <view>
       <text wx:if="{{date==calendarSignData[date]}}" style="color:#C589CF;">
         <text class="iconfont icon-yiqiandao"></text>       </text>
@@ -31,21 +33,11 @@
         <text class="iconfont icon-weiqiandao"></text>       </text>
     </view>
     <!-- 日期-->
-
-
     <view wx:for="{{monthDaySize-date}}" wx:key="item.id">{{item+date+1}}</view>
-
   </view>
-
 
   <view class="calendarSign">
-
-
     <van-button size="large" wx:if="{{!calendarSignData[date]}}" bindtap="calendarSign">签到</van-button>
-
-
     <van-button size="large" wx:else bindtap="calendarSign">今日已签到</van-button>
-
   </view>
-
 </view>

@@ -9,7 +9,7 @@
 1、签到积分
 2、头像处显示等级
 3、百科:搜索框、内容
-4、签到功能：https://upload-images.jianshu.io/upload_images/9691805-060b4eb6622412bb.jpg?imageMogr2/auto-orient/strip|imageView2/2/format/webp
+4、签到功能：1、授权登录 2、登录的时候保存到数据库，并加上id 3、根据id获取签到记录跟积分
 5、排行榜
 6、好友功能
 7、朋友圈
