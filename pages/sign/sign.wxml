@@ -4,7 +4,8 @@
     <view>
       <text class="t_blue">{{year}}</text>年
       <text class="t_blue">{{month}}</text>月
-      <text class="t_blue">{{date}}</text>日     </view>
+      <text class="t_blue">{{date}}</text>日
+    </view>
   </view>
   <view class="weekName">
     <view>日</view>
@@ -16,28 +17,23 @@
     <view>六</view>
   </view>
   <view class="week">
-    <!-- 填补空格-->
-    <view wx:for="{{nbsp}}" wx:key="item.id" style="color:#fff;">空</view>
-    <!-- 已过日期 + 已签到日期-->
-    <!--循环日期-->
-    <!-- 当天以前 -->
-    <view wx:for="{{date-1}}" wx:key="item.id">
-      <text wx:if="{{item+1==calendarSignData[item+1]}}" style="color:#C589CF;">
-        <text class="iconfont icon-yiqiandao"></text>       </text>
-      <text wx:else>{{item+1}}</text>     </view>
-    <!-- 已签到日期 || 今日/当天-->
-    <view>
-      <text wx:if="{{date==calendarSignData[date]}}" style="color:#C589CF;">
-        <text class="iconfont icon-yiqiandao"></text>       </text>
-      <text wx:else style="color:#C589CF;">
-        <text class="iconfont icon-weiqiandao"></text>       </text>
+
+    <!--填补空格-->
+    <view wx:for="{{nbsp}}"  wx:key="item.id" >\n</view>
+
+    <!--开心循环日期-->
+    <view wx:for="{{date-1}}" wx:key="item.id" style="color:gainsboro;">
+      <text wx:if="{{item+1==calendarSignData[item+1]}}" style="color:#33998C;font-size:22rpx;">已签到</text>
+      <text wx:else="">{{item+1}}</text>
     </view>
-    <!-- 日期-->
+    <view class='selDate'>
+      <text wx:if="{{date==calendarSignData}}" class='selDateItem'>已签到</text>
+      <text wx:else="" style="color:#33998C;">{{date}}</text>
+    </view>
     <view wx:for="{{monthDaySize-date}}" wx:key="item.id">{{item+date+1}}</view>
   </view>
-
   <view class="calendarSign">
-    <van-button size="large" wx:if="{{!calendarSignData[date]}}" bindtap="calendarSign">签到</van-button>
-    <van-button size="large" wx:else bindtap="calendarSign">今日已签到</van-button>
+    <button class='signInBtn' wx:if="{{date!=calendarSignData}}" bindtap="calendarSign">签到</button>
+    <button wx:else="" class='signInBtn'>今日已签到</button>
   </view>
 </view>

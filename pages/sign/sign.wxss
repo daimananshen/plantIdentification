@@ -69,3 +69,11 @@ page {
 .calendarSign {
   margin: 20rpx;
 }
+
+button {
+  color: #fff;
+  background-color: #07c160;
+}
+.selDateItem{
+  color: #07c160;
+}

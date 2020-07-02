@@ -1,12 +1,16 @@
 // pages/sign/sign.js
+// sign_num 签到时间
 let app = new getApp();
+var calendarSignData = [];
+var signData;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    calendarSignData:[],
+    signData:''
   },
   //初始化
   //当前时间
@@ -35,23 +39,28 @@ Page({
     let date = new Date();
     let month = date.getMonth() + 1;
     let strDate = date.getDate();
-
     this.getCheckedInRecord(this.data.year, this.data.month, this.data.monthDaySize)
-    console.log(this.data.year, this.data.month, this.data.monthDaySize)
     db.collection('sign').add({
       // data 字段表示需新增的 JSON 数据
       data: {
-        _id: 'id_' + date.getFullYear() + month + strDate, // 可选自定义 _id，在此处场景下用数据库自动分配的就可以了
+        _id: 'id_' + date.getFullYear() + month + strDate, // 自定义 _id，而不采用云数据库生成的id,防止重复签到
         checkDate: this.getNowFormatDate(),
-        done: true //是否签到
+        sign_num: strDate,
+        done:true
       },
       success: function(res) {
-        // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
-        console.log("数据插入成功")
-
+        console.log(res)
+        wx.showToast({
+          title: '签到成功',
+          icon: 'success',
+          duration: 2000
+        })
       },
       fail: function(res) {
-        console.log("数据插入失败")
+        wx.showToast({
+          title: '今日已签到,请勿重复签到',
+          icon: 'none',
+        })
       }
     })
 
@@ -61,59 +70,62 @@ Page({
   getCheckedInRecord: function(year, month, monthDaySize) {
 
     const db = wx.cloud.database({});
-    let calendarSignData = new Array(monthDaySize)
-    console.log(calendarSignData)
     db.collection('sign').get({
       success: function(res) {
 
         let arr = res.data
-
-        console.log('arr', arr)
         for (let value of arr) {
-          console.log('value', value)
-          calendarSignData[value] = value
-
+          signData = value.sign_num
+          console.log('signData', signData)
+          wx.setStorageSync("calendarSignData", signData);
         }
-
-        // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
-        that.setData({
-          calendarSignData: calendarSignData
+        this.setData({
+          calendarSignData: signData
         })
       },
-      fail: function(res) {}
+      fail: function(res) {
+        wx.showToast({
+          title: '查询本月签到的数据失败',
+          icon: 'none',
+        })
+      }
     })
 
   },
   init: function() {
-    let mydate = new Date(); //本地时间
-    let year = mydate.getFullYear(); //年
-    let month = mydate.getMonth() + 1; //月
-    let date = mydate.getDate(); //今日
-    console.log("date", date)
-    let day = mydate.getDay(); //天
-    console.log("day", day)
-    let nbsp = 7 - ((date - day) % 7); //空格
-    console.log('nbsp', nbsp)
-    let monthDaySize; //天数
+    var mydate = new Date();
+    var year = mydate.getFullYear();
+    var month = mydate.getMonth() + 1;
+    var date = mydate.getDate();
+    var day = mydate.getDay();
+    var nbsp;
+    // 重点(网上的nbsp判断不正确)
+    if ((date - day) <= 0) {
+      nbsp = day - date + 1;
+    } else {
+      nbsp = 7 - ((date - day) % 7) + 1;
+    }
+    var monthDaySize;
     if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
       monthDaySize = 31;
     } else if (month == 4 || month == 6 || month == 9 || month == 11) {
       monthDaySize = 30;
-    } else if (month == 2) { //计算是否是闰年,如果是二月份则是29天
+    } else if (month == 2) {
+      // 计算是否是闰年,如果是二月份则是29天
       if ((year - 2000) % 4 == 0) {
         monthDaySize = 29;
       } else {
         monthDaySize = 28;
       }
     };
-
-    console.log(monthDaySize)
+    calendarSignData = wx.getStorageSync("calendarSignData")
     this.setData({
       year: year,
       month: month,
       nbsp: nbsp,
+      monthDaySize: monthDaySize,
       date: date,
-      monthDaySize: monthDaySize
+      calendarSignData: calendarSignData
     })
     this.getCheckedInRecord(year, month, monthDaySize) //获取已签到日期
   },
