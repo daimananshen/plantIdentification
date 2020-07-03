@@ -2,15 +2,15 @@
 // sign_num 签到时间
 let app = new getApp();
 var calendarSignData = [];
-var signData;
+var signData = [];
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    calendarSignData:[],
-    signData:''
+    calendarSignData: [],
+    signData: []
   },
   //初始化
   //当前时间
@@ -46,10 +46,9 @@ Page({
         _id: 'id_' + date.getFullYear() + month + strDate, // 自定义 _id，而不采用云数据库生成的id,防止重复签到
         checkDate: this.getNowFormatDate(),
         sign_num: strDate,
-        done:true
+        done: true
       },
       success: function(res) {
-        console.log(res)
         wx.showToast({
           title: '签到成功',
           icon: 'success',
@@ -74,13 +73,14 @@ Page({
       success: function(res) {
 
         let arr = res.data
+        wx.setStorageSync("calendarSignData", arr);
+       
         for (let value of arr) {
           signData = value.sign_num
-          console.log('signData', signData)
-          wx.setStorageSync("calendarSignData", signData);
         }
+
         this.setData({
-          calendarSignData: signData
+          calendarSignData: arr
         })
       },
       fail: function(res) {
@@ -92,7 +92,7 @@ Page({
     })
 
   },
-  init: function() {
+  init: function () {
     var mydate = new Date();
     var year = mydate.getFullYear();
     var month = mydate.getMonth() + 1;
@@ -118,14 +118,20 @@ Page({
         monthDaySize = 28;
       }
     };
-    calendarSignData = wx.getStorageSync("calendarSignData")
+    calendarSignData =  wx.getStorageSync("calendarSignData")
+
+    for (let value of calendarSignData) {
+      signData = value.sign_num
+      console.log(signData)
+    }
+
     this.setData({
       year: year,
       month: month,
       nbsp: nbsp,
       monthDaySize: monthDaySize,
       date: date,
-      calendarSignData: calendarSignData
+      calendarSignData: signData,
     })
     this.getCheckedInRecord(year, month, monthDaySize) //获取已签到日期
   },

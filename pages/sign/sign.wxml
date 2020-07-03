@@ -19,13 +19,15 @@
   <view class="week">
 
     <!--填补空格-->
-    <view wx:for="{{nbsp}}"  wx:key="item.id" >\n</view>
+    <view wx:for="{{nbsp}}" wx:key="item.id">\n</view>
 
-    <!--开心循环日期-->
+    <!--循环日期 显示已签到日期-->
     <view wx:for="{{date-1}}" wx:key="item.id" style="color:gainsboro;">
-      <text wx:if="{{item+1==calendarSignData[item+1]}}" style="color:#33998C;font-size:22rpx;">已签到</text>
+      <text wx:if="{{item+1==date-1}}" class='selDateItem'>已签到</text>
       <text wx:else="">{{item+1}}</text>
     </view>
+
+    <!-- 判断今天是否签到 -->
     <view class='selDate'>
       <text wx:if="{{date==calendarSignData}}" class='selDateItem'>已签到</text>
       <text wx:else="" style="color:#33998C;">{{date}}</text>
