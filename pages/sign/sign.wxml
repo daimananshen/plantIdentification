@@ -22,20 +22,20 @@
     <view wx:for="{{nbsp}}" wx:key="item.id">\n</view>
 
     <!--循环日期 显示已签到日期-->
-    <view wx:for="{{date-1}}" wx:key="item.id" style="color:gainsboro;">
-      <text wx:if="{{item+1==date-1}}" class='selDateItem'>已签到</text>
-      <text wx:else="">{{item+1}}</text>
+    <view wx:for="{{date-1}}" wx:key="item._id" style="color:gainsboro;">
+        <text wx:if="{{item+1==calendarSignData[item-1]}}" class='selDateItem'>已签到</text>
+        <text wx:else="">{{item+1}}</text>
     </view>
 
     <!-- 判断今天是否签到 -->
     <view class='selDate'>
-      <text wx:if="{{date==calendarSignData}}" class='selDateItem'>已签到</text>
+      <text wx:if="{{date==todaySignData}}" class='selDateItem'>已签到</text>
       <text wx:else="" style="color:#33998C;">{{date}}</text>
     </view>
     <view wx:for="{{monthDaySize-date}}" wx:key="item.id">{{item+date+1}}</view>
   </view>
   <view class="calendarSign">
-    <button class='signInBtn' wx:if="{{date!=calendarSignData}}" bindtap="calendarSign">签到</button>
+    <button class='signInBtn' wx:if="{{date!=todaySignData}}" bindtap="calendarSign">签到</button>
     <button wx:else="" class='signInBtn'>今日已签到</button>
   </view>
 </view>
