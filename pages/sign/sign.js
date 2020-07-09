@@ -2,8 +2,8 @@
 // sign_num 签到时间
 let app = new getApp();
 var calendarSignData = [];
-var signData = [];
-var score= '';
+var signData;
+var score;
 
 Page({
 
@@ -122,12 +122,15 @@ Page({
         monthDaySize = 28;
       }
     };
+
     calendarSignData = wx.getStorageSync("calendarSignData")
 
-    var mydata = [];
+    let mySignData = [];
+
     for (let value of calendarSignData) {
-      signData = value.sign_num
-      mydata.push(signData)
+
+      signData = value.sign_num;
+      mySignData.push(signData)
 
     }
 
@@ -137,9 +140,11 @@ Page({
       nbsp: nbsp,
       monthDaySize: monthDaySize,
       date: date,
-      calendarSignData: mydata,
-      todaySignData: signData
+      calendarSignData: mySignData,
+      todaySignData: signData,
     })
+
+
     this.getCheckedInRecord(year, month, monthDaySize) //获取已签到日期
   },
   /**
