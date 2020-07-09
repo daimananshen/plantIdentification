@@ -10,6 +10,7 @@ App({
   //全局变量
   globalData: {
     getData: '',
-    image: ''
+    image: '',
+    userInfo:''
   },
 })

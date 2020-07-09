@@ -1,6 +1,6 @@
 // pages/sign/sign.js
-// sign_num 签到时间
-let app = new getApp();
+// sign_num 签到日期
+const app = getApp()
 var calendarSignData = [];
 var signData;
 var score;
@@ -49,6 +49,8 @@ Page({
         score: score + 1,
         checkDate: this.getNowFormatDate(),
         sign_num: strDate,
+        avatarUrl: app.globalData.userInfo.avatarUrl,
+        nickName: app.globalData.userInfo.nickName,
         done: true
       },
       success: function(res) {
