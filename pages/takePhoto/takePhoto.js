@@ -1,5 +1,7 @@
 var that = '';
-var app = getApp()
+const app = getApp()
+var userInfo = ""
+
 Page({
 
   /**
@@ -15,6 +17,20 @@ Page({
    */
   onLoad: function (options) {
     that = this;
+
+  
+    wx.getStorage({
+      key: 'getUserInfo',
+      success: function (res) {
+        console.log(res)
+        userInfo = res.data
+        that.setData({
+          userInfo: res.data,
+          hasUserInfo: true
+        });
+      },
+      fail: function (res) { }
+    });
   },
   /**
    * 选择图片
@@ -93,6 +109,7 @@ Page({
         'content-type': 'application/x-www-form-urlencoded' // 默认值
       },
       success(res) {
+        console.log("96",userInfo)
         if (res.data) {
           getApp().globalData.getData = JSON.stringify(res.data.result);
           wx.navigateTo({

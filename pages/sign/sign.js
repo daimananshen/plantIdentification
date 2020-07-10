@@ -49,8 +49,8 @@ Page({
         score: score + 1,
         checkDate: this.getNowFormatDate(),
         sign_num: strDate,
-        avatarUrl: app.globalData.userInfo.avatarUrl,
-        nickName: app.globalData.userInfo.nickName,
+        // avatarUrl: app.globalData.userInfo.avatarUrl,
+        // nickName: app.globalData.userInfo.nickName,
         done: true
       },
       success: function(res) {
