@@ -10,6 +10,7 @@ Page({
     items: '',
     page: 1, //第几页
     limit: 5, //每页的数量
+    openid: ''
   },
   /**
   
@@ -18,14 +19,10 @@ Page({
      */
 
   onLoad: function(options) {
-
     //加载轮播图
-
     this.getBanner();
-
     // 获取文章
     this.getArticle();
-
   },
 
   // 轮播图代码
@@ -128,11 +125,9 @@ Page({
   // banner详情
   bannerDetail(e) {
     let id = e.target.dataset.id;
-
     wx.navigateTo({
       url: '../bannerDetail/bannerDetail?id=' + id
     })
-    console.log(e)
   },
   wikipedia(){
     wx.navigateTo({
