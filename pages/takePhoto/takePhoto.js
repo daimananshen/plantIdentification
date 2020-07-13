@@ -1,6 +1,10 @@
 var that = '';
 const app = getApp()
-var userInfo = ""
+const db = wx.cloud.database({});
+var util = require("../../utils/util.js");
+var openid;
+var score = 0;
+var arrayIsEmpty;
 
 Page({
 
@@ -15,27 +19,31 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     that = this;
-
-  
-    wx.getStorage({
-      key: 'getUserInfo',
-      success: function (res) {
-        console.log(res)
-        userInfo = res.data
-        that.setData({
-          userInfo: res.data,
-          hasUserInfo: true
-        });
-      },
-      fail: function (res) { }
-    });
+    that.getOpenid();
+    that.getDataBase();
+  },
+  // 获取用户openid
+  getOpenid() {
+    wx.cloud.callFunction({
+      name: 'getOpenid',
+      complete: res => {
+        openid = res.result.userInfo.openId;
+      }
+    })
+  },
+  getDataBase() {
+    db.collection('user').where({
+      _id: openid // 根据_id查询用户是否有数据
+    }).get().then(res => {
+      arrayIsEmpty = res.data
+    })
   },
   /**
    * 选择图片
    */
-  chooseimgTap: function () {
+  chooseimgTap: function() {
     that.setData({
       content: ''
     });
@@ -46,7 +54,7 @@ Page({
       success(res) {
         const tempFilePaths = res.tempFilePaths[0];
         that.getB64ByUrl(tempFilePaths);
-        getApp().globalData.image= tempFilePaths;
+        getApp().globalData.image = tempFilePaths;
         that.setData({
           img: tempFilePaths
         });
@@ -57,7 +65,7 @@ Page({
   /**
    * 转base64
    */
-  getB64ByUrl: function (url) {
+  getB64ByUrl: function(url) {
     const FileSystemManager = wx.getFileSystemManager();
     FileSystemManager.readFile({
       filePath: url,
@@ -74,17 +82,17 @@ Page({
   /**
    * 植物识别
    */
-  plantTap: function (e) {
+  plantTap: function(e) {
     const imgB64 = that.data.imgB64;
     if (!imgB64) {
       return;
     };
 
-    that.getToken(function (token) {
+    that.getToken(function(token) {
       that.getResult(token);
     });
   },
-  getToken: function (callback) {
+  getToken: function(callback) {
     wx.request({
       url: 'https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=hP60f1uvdS14ShGxe8fKg4qx&client_secret=HVma2uRHsSF0iynTGWOCa3BIKXPkYFdY',
       data: {},
@@ -97,7 +105,7 @@ Page({
       }
     });
   },
-  getResult: function (token) {
+  getResult: function(token) {
     wx.request({
       url: 'https://aip.baidubce.com/rest/2.0/image-classify/v1/plant?access_token=' + token,
       method: "post",
@@ -109,9 +117,33 @@ Page({
         'content-type': 'application/x-www-form-urlencoded' // 默认值
       },
       success(res) {
-        console.log("96",userInfo)
-        if (res.data) {
+        if (res.statusCode == 200) {
           getApp().globalData.getData = JSON.stringify(res.data.result);
+          if (arrayIsEmpty.length == 0) {
+            db.collection('user').add({
+              data: {
+                _id: openid,
+                score: score + 1,
+                getScoreDate: util.formatTime(new Date())
+              },
+              success: function(res) {},
+              fail: function(err) {}
+            });
+          } else {
+            console.log(arrayIsEmpty)
+            db.collection('user').where({
+                _id: openid
+              })
+              .update({
+                data: {
+                  score: arrayIsEmpty[0].score + 1,
+                  getScoreDate: util.formatTime(new Date())
+                },
+                success: console.log,
+                fail: console.error
+              })
+          }
+
           wx.navigateTo({
             url: '../showData/showData'
           })

@@ -1,9 +1,9 @@
 //获取应用实例
 const app = getApp()
-var util = require("../../utils/util.js");
 const db = wx.cloud.database({});
-const user = db.collection('user');
+var util = require("../../utils/util.js");
 var openid;
+var arrayIsEmpty;
 Page({
   data: {
     userInfo: {},
@@ -17,9 +17,9 @@ Page({
     })
   },
   onLoad: function() {
-    this.getOpenid();
-
     var that = this;
+    that.getOpenid();
+    that.getDataBase();
     wx.getStorage({
       key: 'getUserInfo',
       success: function(res) {
@@ -32,6 +32,13 @@ Page({
     });
 
   },
+  getDataBase() {
+    db.collection('user').where({
+      _id: openid // 根据_id查询用户是否有数据
+    }).get().then(res => {
+      arrayIsEmpty = res.data
+    })
+  },
   getUserInfo: function(e) {
     if (e.detail.userInfo) {
       app.globalData.userInfo = e.detail.userInfo
@@ -41,17 +48,31 @@ Page({
         data: app.globalData.userInfo,
         success: function(res) {
 
-          //保存登录信息到数据库 
-          user.add({
-            data: {
-              _id: openid,
-              avatarUrl: app.globalData.userInfo.avatarUrl,
-              nickName: app.globalData.userInfo.nickName,
-              authorizationDate: util.formatTime(new Date())
-            },
-            success: function(res) {},
-            fail: function(err) {}
-          });
+          if (arrayIsEmpty.length == 0) {
+            db.collection('user').add({
+              data: {
+                _id: openid,
+                avatarUrl: app.globalData.userInfo.avatarUrl,
+                nickName: app.globalData.userInfo.nickName,
+                authorizationDate: util.formatTime(new Date())
+              },
+              success: function(res) {},
+              fail: function(err) {}
+            });
+          } else {
+            db.collection('user').where({
+                _id: openid
+              })
+              .update({
+                data: {
+                  avatarUrl: app.globalData.userInfo.avatarUrl,
+                  nickName: app.globalData.userInfo.nickName,
+                  authorizationDate: util.formatTime(new Date())
+                },
+                success: function(res) {},
+                fail: function(err) {}
+              })
+          }
 
           that.setData({
             userInfo: app.globalData.userInfo,
@@ -80,7 +101,6 @@ Page({
     wx.cloud.callFunction({
       name: 'getOpenid',
       complete: res => {
-        console.log('云函数获取到的openid: ', res.result.userInfo.openId)
         openid = res.result.userInfo.openId;
       }
     })
