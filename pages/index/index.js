@@ -2,8 +2,8 @@ Page({
   data: {
     indicatorDots: true,
     autoplay: true,
-    indicatorActiveColor:"#07c160",
-    indicatorColor:"white",
+    indicatorActiveColor: "#07c160",
+    indicatorColor: "white",
     interval: 5000,
     duration: 500,
     item: [],
@@ -28,30 +28,20 @@ Page({
   // 轮播图代码
 
   getBanner() {
-
     // 调用默认环境数据库的引用
-
     const db = wx.cloud.database()
-
     // tables数据库创建的集合名称
-
     const banner = db.collection('banner')
-
     //promise
-
     banner.get().then(res => {
-
         this.setData({
           item: res.data
         })
-
       })
       .catch(err => {
         console.log(err)
       })
-
   },
-
   // 获取文章
   getArticle(callback) {
 
@@ -63,20 +53,14 @@ Page({
     })
 
     // 调用默认环境数据库的引用
-
     const db = wx.cloud.database()
-
     // tables数据库创建的集合名称
-
     const article = db.collection('article')
-
     article.get().then(res => {
         var that = this;
         let contentList = that.data.items;
-
         wx.hideLoading();
         callback();
-
         if (that.data.page == 1) {
           //第一页的时候直接赋值，contentList  为空避免数据重复
           contentList = [];
@@ -129,27 +113,27 @@ Page({
       url: '../bannerDetail/bannerDetail?id=' + id
     })
   },
-  wikipedia(){
+  wikipedia() {
     wx.navigateTo({
       url: '../wikipedia/wikipedia'
     })
   },
-  publish(){
+  publish() {
     wx.navigateTo({
       url: '../notice/notice'
     })
   },
-  list(){
+  list() {
     wx.navigateTo({
       url: '../list/list'
     })
   },
-  cultivating(){
+  cultivating() {
     wx.navigateTo({
       url: '../cultivating/cultivating'
     })
   },
-  sign(){
+  sign() {
     wx.navigateTo({
       url: '../sign/sign'
     })

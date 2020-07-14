@@ -3,6 +3,5 @@
   <view class='listData'>
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
     <view class='nickName'>{{userInfo.nickName}}</view>
-    <view class='nickName'></view>
   </view>
 </view>
