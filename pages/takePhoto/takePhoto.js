@@ -3,7 +3,7 @@ const app = getApp()
 const db = wx.cloud.database({});
 var util = require("../../utils/util.js");
 var openid;
-var score = 0;
+var score = null;
 var arrayIsEmpty;
 
 Page({
@@ -15,6 +15,7 @@ Page({
     img: '/images/bg.jpg',
     imgB64: '',
     content: '',
+    score:null
   },
   /**
    * 生命周期函数--监听页面加载

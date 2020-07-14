@@ -1,7 +1,6 @@
 // pages/list/list.js
 //获取应用实例
-const app = getApp()
-const db = wx.cloud.database()
+// const app = getApp()
 
 Page({
 
@@ -9,21 +8,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {}
+    userInfo: ''
   },
   onLoad: function(options) {
-    this.getListData();
+    this.cloudData();
   },
-  getListData() {
-    const banner = db.collection('user')
-    banner.get().then(res => {
-      console.log(res)
+  cloudData:function(){
+    wx.cloud.callFunction({
+      name:"getList"
+    }).then(res=>{
+      for (let index = 0; index < res.result.data.length; index++) {
+        let userInfo = res.result.data[index];
         this.setData({
-          userInfo: res.data
+          userInfo:userInfo
         })
-      })
-      .catch(err => {
-        console.log(err)
-      })
+      }
+
+      
+    }).catch(err=>{
+      console.error(err)
+    })
+
   }
 })
