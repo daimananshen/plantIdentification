@@ -1,7 +1,8 @@
 <!--pages/list/list.wxml-->
-<view class='list' >
-  <view class='listData'>
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
-    <view class='nickName'>{{userInfo.nickName}}</view>
+<view class='list' wx:if="userInfo">
+  <view class='listData' wx:for="{{userInfo}}" wx:key="key" wx:for-index="key" wx:for-item="v">
+    <image class="userinfo-avatar" src="{{v.avatarUrl}}" mode="aspectFill"></image>
+    <view class='nickName'>{{v.nickName}}</view>
+    <view class='nickName'>{{v.score}}积分</view>
   </view>
 </view>

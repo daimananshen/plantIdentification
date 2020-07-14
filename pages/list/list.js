@@ -17,13 +17,15 @@ Page({
     wx.cloud.callFunction({
       name:"getList"
     }).then(res=>{
-      for (let index = 0; index < res.result.data.length; index++) {
-        let userInfo = res.result.data[index];
-        this.setData({
-          userInfo:userInfo
-        })
-      }
-
+      // for (let index = 0; index < res.result.data.length; index++) {
+      //   let userInfo = res.result.data[index];
+      //   this.setData({
+      //     userInfo:userInfo
+      //   })
+      // }
+      this.setData({
+        userInfo:res.result.data
+      })
       
     }).catch(err=>{
       console.error(err)
